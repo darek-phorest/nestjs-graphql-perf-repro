@@ -115,15 +115,15 @@ function generateAppModule(): void {
 
   const appModuleContent = `import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 ${imports.join('\n')}
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
+    GraphQLModule.forRoot<MercuriusDriverConfig>({
+      driver: MercuriusDriver,
       autoSchemaFile: true,
-      playground: true,
+      graphiql: true,
     }),
     ${moduleNames.join(',\n    ')},
   ],

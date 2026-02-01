@@ -4,11 +4,14 @@
   "description": "Reproduction repo for NestJS GraphQL registerContextProvider performance issue",
   "scripts": {
     "build": "nest build",
-    "start": "nest start",
+    "start": "node dist/src/main.js",
     "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
+    "start:debug": "node --inspect dist/src/main.js",
+    "start:without-fix": "node dist/src/main.js",
+    "start:with-fix": "node dist/src/main-with-fix.js",
     "generate-modules": "ts-node scripts/generate-modules.ts",
-    "benchmark": "node benchmark/run-benchmark.js"
+    "benchmark": "node benchmark/run-benchmark.js",
+    "benchmark:compare": "node benchmark/compare.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
@@ -16,9 +19,12 @@
     "@nestjs/common": "^10.4.15",
     "@nestjs/core": "^10.4.15",
     "@nestjs/graphql": "^12.2.1",
+    "@nestjs/mercurius": "^12.2.2",
     "@nestjs/platform-express": "^10.4.15",
+    "@nestjs/platform-fastify": "^10.4.15",
     "dataloader": "^2.2.3",
     "graphql": "^16.9.0",
+    "mercurius": "^14.1.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },

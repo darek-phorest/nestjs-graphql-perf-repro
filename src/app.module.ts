@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 import { Module001Module } from './modules/module001/module001.module';
 import { Module002Module } from './modules/module002/module002.module';
 import { Module003Module } from './modules/module003/module003.module';
@@ -104,10 +104,10 @@ import { Module100Module } from './modules/module100/module100.module';
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
+    GraphQLModule.forRoot<MercuriusDriverConfig>({
+      driver: MercuriusDriver,
       autoSchemaFile: true,
-      playground: true,
+      graphiql: true,
     }),
     Module001Module,
     Module002Module,
